@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load solo_tags %}
+
+{% load i18n %}
+
+
+{% block title %}{{ about.title }}{% endblock %}
+
+{% block meta_title %}{{ about.meta_title }}{% endblock %}
+
+{% block description %}
+{{ about.meta_description|safe }}
+{% for obj in phones %}
+	{{ obj.number }}
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+
+	<section class="s-head">
+		<div class="wrapper">
+			<nav class="s-head__nav s-head__nav--mobile">
+				<div class="s-head__nav-more">{% trans "Больше информации" %}</div>
+				{% for obj in menu_about %}
+					<a href="{{ obj.link }}">{{ obj.name }}</a>
+				{% endfor %}
+
+				<button class="s-head__more-btn">
+					<span class="icon icon--arrow"></span>
+				</button>
+			</nav>
+		</div>
+	</section>
+
+	<section class="s-about">
+		<div class="wrapper">
+			<div class="s-about__wrap">
+				<div class="b-top-nav">
+					<a href="{% url 'main' %}" class="b-top-nav__item active">{% trans "Главная" %}</a>
+					<a href="{% url 'about' %}" class="b-top-nav__item">{% trans "О Нас" %}</a>
+				</div>
+
+				<h2 class="b-top-title">{{ about.title }}</h2>
+
+				<div class="s-about-info">
+					<h3 class="s-about-info__title">
+						{{ about.subtitle }}
+					</h3>
+					<p class="s-about-info__text">
+						{{ about.text }}
+					</p>
+				</div>
+
+				<div class="s-about-content">
+				{% for obj in about.advantages.get_queryset %}
+					<div class="s-about-content__item">
+						<img src="{{ obj.image.url }}">
+						<p class="s-about-content__item-caption">
+							{{ obj.text|safe }}
+						</p>
+					</div>
+				{% endfor %}
+				</div>
+
+				<a href="{% url 'callback' %}" class="b-btn-primary b-btn-primary--main b-btn-primary--sm s-about__btn">{% trans "Оформить кредит" %}</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="s-response" id="response">
+		<div class="wrapper">
+			<h2 class="b-section-title">{{ about.title_middle }}</h2>
+			<p class="s-response__info">{{ about.text_middle }}</p>
+			<div id="response" class="b-response-wrap">
+			{% for obj in about.responses.get_queryset %}
+				<div>
+					<div class="b-response">
+						<div class="b-response__icon"></div>
+
+						<p class="b-response__info">
+							{{ obj.text }}
+						</p>
+
+						<div class="b-response__person">
+							<img class="b-response__person-img" src="{{ obj.image.url }}" alt="person-img" width="130" height="125">
+
+							<div class="b-response__person-info">
+								<p><b>{{ obj.name }}</b></p>
+								<p>{{ obj.status }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="s-values">
+		<div class="wrapper">
+			<h2 class="b-section-title">{{ about.important_title }}</h2>
+
+			<div class="b-value-wrap">
+			{% for obj in about.important_aspects.get_queryset %}
+				<div class="b-value">
+					<div class="b-value__img">
+						<img src="{{ obj.image.url }}" alt="interview">
+					</div>
+					<div class="b-value__info">
+						<h3 class="b-value__info-title">{{ obj.title }}</h3>
+						<p class="b-value__info-text">{{ obj.text }}</p>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

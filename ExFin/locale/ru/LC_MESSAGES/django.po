@@ -1,0 +1,1522 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-02 15:14+0300\n"
+"PO-Revision-Date: 2018-04-03 08:48+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"Language: zxx\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Source-Locale: ru_RU\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: communication/forms.py:12
+msgid "ФИО"
+msgstr "ФИО"
+
+#: communication/forms.py:14 communication/forms.py:37
+msgid "E-mail"
+msgstr ""
+
+#: communication/forms.py:19 communication/forms.py:55 
+#: communication/forms.py:64
+msgid "Ваше сообщение..."
+msgstr ""
+
+#: communication/forms.py:25 communication/models.py:250 
+#: templates/index.html:232 templates/main.html:242
+msgid "Имя"
+msgstr ""
+
+#: communication/forms.py:28 communication/models.py:252 
+#: templates/index.html:233 templates/main.html:243
+msgid "Фамилия"
+msgstr ""
+
+#: communication/forms.py:35 department/models.py:22 templates/contacts.html:50
+msgid "Телефон"
+msgstr ""
+
+#: communication/forms.py:48
+msgid "Неправильный формат телефона"
+msgstr ""
+
+#: communication/models.py:15 communication/models.py:211 
+#: content/models.py:344 content/models.py:443
+msgid "Title страницы"
+msgstr ""
+
+#: communication/models.py:18 communication/models.py:214 
+#: content/models.py:347 content/models.py:452
+msgid "Meta title страницы"
+msgstr ""
+
+#: communication/models.py:21 communication/models.py:217 
+#: content/models.py:350 content/models.py:461
+msgid "Meta description страницы"
+msgstr ""
+
+#: communication/models.py:24
+msgid "Телефоны"
+msgstr ""
+
+#: communication/models.py:26 communication/models.py:103 
+#: communication/models.py:107 communication/models.py:264 
+#: department/models.py:24 templates/contacts.html:56
+msgid "Электронная почта"
+msgstr ""
+
+#: communication/models.py:29 templates/index.html:387 templates/main.html:397
+msgid "Адрес"
+msgstr ""
+
+#: communication/models.py:30
+msgid "Текст вверху"
+msgstr ""
+
+#: communication/models.py:31
+msgid "График"
+msgstr ""
+
+#: communication/models.py:33
+msgid "Электронная почта для напишите нам"
+msgstr ""
+
+#: communication/models.py:38
+msgid "Текст снизу"
+msgstr ""
+
+#: communication/models.py:40
+msgid "Форма при успешной отправке сообщения"
+msgstr ""
+
+#: communication/models.py:46 communication/models.py:47 
+#: templates/contacts.html:44 templates/contacts.html:46 
+#: templates/index.html:395 templates/main.html:405
+msgid "Контакты"
+msgstr ""
+
+#: communication/models.py:57 communication/models.py:61 
+#: communication/models.py:69 communication/models.py:261 users/models.py:18
+msgid "Номер телефона"
+msgstr ""
+
+#: communication/models.py:62
+msgid "Номера телефонов"
+msgstr ""
+
+#: communication/models.py:71
+msgid "Время активности, начиная с:"
+msgstr ""
+
+#: communication/models.py:73
+msgid "Время активности, заканчивая в:"
+msgstr ""
+
+#: communication/models.py:77 communication/models.py:78
+msgid "Горячая линия"
+msgstr ""
+
+#: communication/models.py:85
+msgid "Фото клиента"
+msgstr ""
+
+#: communication/models.py:87
+msgid "Имя клиента"
+msgstr ""
+
+#: communication/models.py:89
+msgid "Статус клиента"
+msgstr ""
+
+#: communication/models.py:91
+msgid "Текст отзыва"
+msgstr ""
+
+#: communication/models.py:95
+msgid "Отзыв"
+msgstr ""
+
+#: communication/models.py:96 content/models.py:370
+msgid "Отзывы"
+msgstr ""
+
+#: communication/models.py:108
+msgid "Электронные почты"
+msgstr ""
+
+#: communication/models.py:115 communication/models.py:196 
+#: communication/models.py:233 content/models.py:42 content/models.py:60 
+#: content/models.py:75 content/models.py:97 content/models.py:127 
+#: content/models.py:253 content/models.py:329 content/models.py:359
+msgid "URL-адрес"
+msgstr ""
+
+#: communication/models.py:117 communication/models.py:198 
+#: communication/models.py:235 content/models.py:255 content/models.py:331 
+#: content/models.py:361
+msgid ""
+"Используйте ссылку вида /#html_id для блока лэндинга. Остальные ссылки "
+"указывать полностью (https://...)"
+msgstr ""
+
+#: communication/models.py:122
+msgid "Социальная сеть"
+msgstr ""
+
+#: communication/models.py:123
+msgid "Социальные сети"
+msgstr ""
+
+#: communication/models.py:130 content/models.py:38 content/models.py:55 
+#: content/models.py:184 content/models.py:197 content/models.py:228 
+#: content/models.py:247 content/models.py:268 content/models.py:321 
+#: content/models.py:352 content/models.py:385 content/models.py:586
+msgid "Заголовок"
+msgstr ""
+
+#: communication/models.py:132
+msgid "Текст статьи"
+msgstr ""
+
+#: communication/models.py:133 content/models.py:57 content/models.py:158 
+#: content/models.py:364 content/models.py:388 credit/models.py:13
+msgid "Картинка"
+msgstr ""
+
+#: communication/models.py:135
+msgid "Дата анонса"
+msgstr ""
+
+#: communication/models.py:138
+msgid "Статья"
+msgstr ""
+
+#: communication/models.py:139
+msgid "Статьи в блоге"
+msgstr ""
+
+#: communication/models.py:160 communication/models.py:239
+msgid "Статьи"
+msgstr ""
+
+#: communication/models.py:163
+msgid "Последние статьи"
+msgstr ""
+
+#: communication/models.py:164
+msgid "Блок последние статьи"
+msgstr ""
+
+#: communication/models.py:178
+msgid "Название"
+msgstr ""
+
+#: communication/models.py:180 content/models.py:213 content/models.py:250 
+#: credit/models.py:79
+msgid "Иконка"
+msgstr ""
+
+#: communication/models.py:186 communication/models.py:242 
+#: templates/spoiler-page.html:30 vacancy/models.py:16
+msgid "Категория"
+msgstr ""
+
+#: communication/models.py:187
+msgid "FAQ категории"
+msgstr ""
+
+#: communication/models.py:194
+msgid "Название вопроса"
+msgstr ""
+
+#: communication/models.py:203 communication/models.py:348
+msgid "Вопрос"
+msgstr ""
+
+#: communication/models.py:204
+msgid "FAQ вопросы"
+msgstr ""
+
+#: communication/models.py:220
+msgid "Категории с вопросами"
+msgstr ""
+
+#: communication/models.py:223
+msgid "Страница"
+msgstr ""
+
+#: communication/models.py:224
+msgid "FAQ страница"
+msgstr ""
+
+#: communication/models.py:231 vacancy/models.py:10
+msgid "Название категории"
+msgstr ""
+
+#: communication/models.py:243
+msgid "Категории в блоге"
+msgstr ""
+
+#: communication/models.py:254 templates/form-resume.html:21
+msgid "Населенный пункт"
+msgstr ""
+
+#: communication/models.py:257 vacancy/models.py:30
+msgid "Вакансия"
+msgstr ""
+
+#: communication/models.py:260
+msgid "Неправильный формат телефона: "
+msgstr ""
+
+#: communication/models.py:265 communication/models.py:269 
+#: communication/models.py:270
+msgid "Резюме"
+msgstr ""
+
+#: communication/models.py:277
+msgid "Заголовок формы"
+msgstr ""
+
+#: communication/models.py:279
+msgid "Текст формы"
+msgstr ""
+
+#: communication/models.py:281
+msgid "Дополнительный текст в левом нижнем углу"
+msgstr ""
+
+#: communication/models.py:286
+msgid "Форма успешно выполненного действия"
+msgstr ""
+
+#: communication/models.py:287
+msgid "Формы успешно выполненного действия"
+msgstr ""
+
+#: communication/models.py:295 communication/models.py:299 
+#: communication/models.py:383
+msgid "Форма"
+msgstr ""
+
+#: communication/models.py:300
+msgid "Форма, если пользователь уже зарегестрирован"
+msgstr ""
+
+#: communication/models.py:307
+msgid "От этого имени будут поститься комментарии к вопросам в ЛК"
+msgstr ""
+
+#: communication/models.py:310
+msgid "Сообщение, завершающее закрытые вопросы"
+msgstr ""
+
+#: communication/models.py:314
+msgid "Конфигурация"
+msgstr ""
+
+#: communication/models.py:315
+msgid "Конфигурация ответов в ЛК"
+msgstr ""
+
+#: communication/models.py:322
+msgid "Дата комментария"
+msgstr ""
+
+#: communication/models.py:324
+msgid "Комментарий"
+msgstr ""
+
+#: communication/models.py:326
+msgid "От администрации"
+msgstr ""
+
+#: communication/models.py:330
+msgid "Комментарий к вопросу пользователя"
+msgstr ""
+
+#: communication/models.py:331
+msgid "Комментарии к вопросам пользователя"
+msgstr ""
+
+#: communication/models.py:339
+msgid "Вопрос закрыт"
+msgstr ""
+
+#: communication/models.py:342 users/models.py:9
+msgid "Пользователь"
+msgstr ""
+
+#: communication/models.py:344
+msgid "Дата создания вопроса"
+msgstr ""
+
+#: communication/models.py:346
+msgid "Дата обновления вопроса"
+msgstr ""
+
+#: communication/models.py:350
+msgid "Прикрепленный файл"
+msgstr ""
+
+#: communication/models.py:355
+msgid "Комментарии"
+msgstr ""
+
+#: communication/models.py:358
+msgid "Завершающий ответ"
+msgstr ""
+
+#: communication/models.py:364
+msgid "Прочитан"
+msgstr ""
+
+#: communication/models.py:369
+msgid "Вопрос пользователя"
+msgstr ""
+
+#: communication/models.py:370
+msgid "Вопросы пользователей"
+msgstr ""
+
+#: communication/models.py:379
+msgid "Форма успешного заказа"
+msgstr ""
+
+#: communication/models.py:384
+msgid "Форма после успешного заказа звонка"
+msgstr ""
+
+#: communication/views/contacts.py:32
+msgid "Сообщение успешно отправлено"
+msgstr ""
+
+#: communication/views/contacts.py:36
+msgid "Произошла ошибка при отправке сообщения, попробуйте позже..."
+msgstr ""
+
+#: communication/views/contacts.py:38 communication/views/resume.py:68
+msgid "Исправьте ошибки в данных"
+msgstr ""
+
+#: communication/views/resume.py:65
+msgid "Произошла ошибка при отправке заявки, попробуйте позже..."
+msgstr ""
+
+#: communication/views/sms.py:58
+msgid "Неправильный код"
+msgstr ""
+
+#: content/models.py:16
+msgid "Тема спойлера"
+msgstr ""
+
+#: content/models.py:18
+msgid "Текст левой колонки"
+msgstr ""
+
+#: content/models.py:21
+msgid "Текст правой колонки"
+msgstr ""
+
+#: content/models.py:24
+msgid "Файл"
+msgstr ""
+
+#: content/models.py:30
+msgid "Спойлер"
+msgstr ""
+
+#: content/models.py:31 content/models.py:41
+msgid "Спойлеры"
+msgstr ""
+
+#: content/models.py:44 content/models.py:62
+msgid "Используйте ссылки вида: url"
+msgstr ""
+
+#: content/models.py:47 content/models.py:65
+msgid "Статическая страница"
+msgstr ""
+
+#: content/models.py:48
+msgid "Статические страницы со спойлерами"
+msgstr ""
+
+#: content/models.py:59 content/models.py:160 content/models.py:186 
+#: content/models.py:212 content/models.py:249 content/models.py:310 
+#: content/models.py:325 content/models.py:356 content/models.py:387 
+#: content/models.py:588 content/models.py:599
+msgid "Текст"
+msgstr ""
+
+#: content/models.py:66
+msgid "Статические страницы"
+msgstr ""
+
+#: content/models.py:73 content/models.py:93 content/models.py:125
+msgid "Название пункта"
+msgstr ""
+
+#: content/models.py:77 content/models.py:99 content/models.py:129
+msgid ""
+"Используйте ссылку вида #html_id для блока лэндинга. Остальные ссылки "
+"указывать полностью (https://...)"
+msgstr ""
+
+#: content/models.py:80 content/models.py:95 content/models.py:215
+msgid "Порядок"
+msgstr ""
+
+#: content/models.py:84 content/models.py:104 content/models.py:134
+msgid "Пункт меню"
+msgstr ""
+
+#: content/models.py:85
+msgid "Пункты меню на странице \"О нас\""
+msgstr ""
+
+#: content/models.py:105
+msgid "Пункты меню в хедере"
+msgstr ""
+
+#: content/models.py:114
+msgid "Пункты"
+msgstr ""
+
+#: content/models.py:117 content/models.py:150 content/models.py:189 
+#: content/models.py:204 content/models.py:235 content/models.py:280 
+#: content/models.py:302 content/models.py:336 content/models.py:429 
+#: content/models.py:604
+msgid "Блок"
+msgstr ""
+
+#: content/models.py:118
+msgid "Блок меню в хедере"
+msgstr ""
+
+#: content/models.py:135
+msgid "Пункты меню в футере"
+msgstr ""
+
+#: content/models.py:142
+msgid "Название блока"
+msgstr ""
+
+#: content/models.py:145
+msgid "Пункты блока"
+msgstr ""
+
+#: content/models.py:146
+msgid "Порядок отображения"
+msgstr ""
+
+#: content/models.py:151
+msgid "Блоки меню в футере"
+msgstr ""
+
+#: content/models.py:162
+msgid "Контактная почта"
+msgstr ""
+
+#: content/models.py:165
+msgid "Контактный телефон"
+msgstr ""
+
+#: content/models.py:170
+msgid "Форма при успешной отправке резюме"
+msgstr ""
+
+#: content/models.py:176
+msgid "Статический блок"
+msgstr ""
+
+#: content/models.py:177
+msgid "Статическая часть страницы Вакансии"
+msgstr ""
+
+#: content/models.py:190
+msgid "Блоки \"Как получить кредит на главной\""
+msgstr ""
+
+#: content/models.py:199
+msgid "Небольшой текст"
+msgstr ""
+
+#: content/models.py:201 credit/models.py:40
+msgid "Кредитные тарифы"
+msgstr ""
+
+#: content/models.py:205
+msgid "Блок кредитные тарифы на главной"
+msgstr ""
+
+#: content/models.py:219
+msgid "Преимущество"
+msgstr ""
+
+#: content/models.py:220 content/models.py:232 content/models.py:358
+msgid "Преимущества"
+msgstr ""
+
+#: content/models.py:230
+msgid "небольшой текст"
+msgstr ""
+
+#: content/models.py:236
+msgid "Блок преимущества на главной"
+msgstr ""
+
+#: content/models.py:260
+msgid "Способ закрытия кредита"
+msgstr ""
+
+#: content/models.py:261
+msgid "Способы закрытия кредита"
+msgstr ""
+
+#: content/models.py:270
+msgid "Заголовок [ru]"
+msgstr ""
+
+#: content/models.py:273
+msgid "Заголовок [ua]"
+msgstr ""
+
+#: content/models.py:277
+msgid "Варианты закрытия"
+msgstr ""
+
+#: content/models.py:281
+msgid "Блок закрытия кредита на главной"
+msgstr ""
+
+#: content/models.py:292
+msgid "Картинка первого партнера"
+msgstr ""
+
+#: content/models.py:294
+msgid "Картинка второго партнера"
+msgstr ""
+
+#: content/models.py:296
+msgid "Картинка третьего партнера"
+msgstr ""
+
+#: content/models.py:299
+msgid "Элементы безопасности"
+msgstr ""
+
+#: content/models.py:303
+msgid "Блок о безопасности на главной"
+msgstr ""
+
+#: content/models.py:313
+msgid "Элемент безопасности"
+msgstr ""
+
+#: content/models.py:314
+msgid "Элементы безопасности на главной"
+msgstr ""
+
+#: content/models.py:322
+msgid "Картинка заднего фона"
+msgstr ""
+
+#: content/models.py:326
+msgid "Иконки"
+msgstr ""
+
+#: content/models.py:337
+msgid "Блок скидка на главной"
+msgstr ""
+
+#: content/models.py:354 content/models.py:417
+msgid "Подзаголовок"
+msgstr ""
+
+#: content/models.py:366
+msgid "Заголовок на середине страницы"
+msgstr ""
+
+#: content/models.py:368
+msgid "Текст на середине страницы"
+msgstr ""
+
+#: content/models.py:371
+msgid "Заголовок важных аспектов"
+msgstr ""
+
+#: content/models.py:374 content/models.py:394
+msgid "Важные аспекты"
+msgstr ""
+
+#: content/models.py:377 content/models.py:378
+msgid "Страница о нас"
+msgstr ""
+
+#: content/models.py:393
+msgid "Аспект"
+msgstr ""
+
+#: content/models.py:401
+msgid "Первая строка заголовка"
+msgstr ""
+
+#: content/models.py:403
+msgid "Первая строка заголовка [ru]"
+msgstr ""
+
+#: content/models.py:406
+msgid "Первая строка заголовка [ua]"
+msgstr ""
+
+#: content/models.py:409
+msgid "Вторая строка заголовка"
+msgstr ""
+
+#: content/models.py:411
+msgid "Вторая строка заголовка [ru]"
+msgstr ""
+
+#: content/models.py:414
+msgid "Вторая строка заголовка [ua]"
+msgstr ""
+
+#: content/models.py:419
+msgid "Подзаголовок [ru]"
+msgstr ""
+
+#: content/models.py:422
+msgid "Подзаголовок [ua]"
+msgstr ""
+
+#: content/models.py:425
+msgid "Картинка на заднем фоне"
+msgstr ""
+
+#: content/models.py:430
+msgid "Блок вверху главной страницы"
+msgstr ""
+
+#: content/models.py:446
+msgid "Title страницы [ru]"
+msgstr ""
+
+#: content/models.py:449
+msgid "Title страницы [ua]"
+msgstr ""
+
+#: content/models.py:455
+msgid "Meta title страницы [ru]"
+msgstr ""
+
+#: content/models.py:458
+msgid "Meta title страницы [ua]"
+msgstr ""
+
+#: content/models.py:463
+msgid "Meta description страницы [ru]"
+msgstr ""
+
+#: content/models.py:465
+msgid "Meta description страницы [ua]"
+msgstr ""
+
+#: content/models.py:468
+msgid "Верхний блок страницы"
+msgstr ""
+
+#: content/models.py:471
+msgid "Кредитные тарифы вверху страницы"
+msgstr ""
+
+#: content/models.py:473 content/models.py:539
+msgid "Блок преимущества"
+msgstr ""
+
+#: content/models.py:476 content/models.py:542
+msgid "Блок акция"
+msgstr ""
+
+#: content/models.py:480 content/models.py:546
+msgid "Блок кредитные тарифы"
+msgstr ""
+
+#: content/models.py:484 content/models.py:550
+msgid "Блок как получить кредит"
+msgstr ""
+
+#: content/models.py:486 content/models.py:552
+msgid "Блок о параметрах защиты"
+msgstr ""
+
+#: content/models.py:490 content/models.py:556
+msgid "Блок отзывы"
+msgstr ""
+
+#: content/models.py:491 content/models.py:557
+msgid "Заголовок над отделениями"
+msgstr ""
+
+#: content/models.py:494 content/models.py:560
+msgid "Заголовок над отделениями [ru]"
+msgstr ""
+
+#: content/models.py:497 content/models.py:563
+msgid "Заголовок над отделениями [ua]"
+msgstr ""
+
+#: content/models.py:501 content/models.py:567 department/models.py:29
+msgid "Отделения"
+msgstr ""
+
+#: content/models.py:503 content/models.py:569
+msgid "Блок как закрыть кредит"
+msgstr ""
+
+#: content/models.py:507
+msgid "Блок информации о кредитах"
+msgstr ""
+
+#: content/models.py:511
+msgid "Меню в футере"
+msgstr ""
+
+#: content/models.py:513
+msgid "Социальные сети в футере"
+msgstr ""
+
+#: content/models.py:514
+msgid "Копирайт в футере"
+msgstr ""
+
+#: content/models.py:516
+msgid "Копирайт в футере [ru]"
+msgstr ""
+
+#: content/models.py:518
+msgid "Копирайт в футере [ua]"
+msgstr ""
+
+#: content/models.py:522 content/models.py:523
+msgid "Главная страница"
+msgstr ""
+
+#: content/models.py:574 content/models.py:575
+msgid "Страница Партнерский лэндинг"
+msgstr ""
+
+#: content/models.py:591 content/models.py:592
+msgid "Информация по кредитам"
+msgstr ""
+
+#: content/models.py:601
+msgid "Блоки информации"
+msgstr ""
+
+#: content/models.py:605
+msgid "Блок информации по кредитам на главной над футером"
+msgstr ""
+
+#: credit/models.py:11
+msgid "Название тарифа"
+msgstr ""
+
+#: credit/models.py:15
+msgid "Минимальная сумма кредита"
+msgstr ""
+
+#: credit/models.py:16
+msgid "Максимальная сумма кредита"
+msgstr ""
+
+#: credit/models.py:17
+msgid "Страховка"
+msgstr ""
+
+#: credit/models.py:19
+msgid "Минимальный срок кредита"
+msgstr ""
+
+#: credit/models.py:20
+msgid "Максимальный срок кредита"
+msgstr ""
+
+#: credit/models.py:21
+msgid "Тип срока кредита"
+msgstr ""
+
+#: credit/models.py:23
+msgid "Если включено, то в месяцах Если отключено, то в неделях"
+msgstr ""
+
+#: credit/models.py:25
+msgid "Минимальная ставка, %"
+msgstr ""
+
+#: credit/models.py:29
+msgid "Максимальная ставка, %"
+msgstr ""
+
+#: credit/models.py:34 credit/models.py:65
+msgid "Сроки платежей"
+msgstr ""
+
+#: credit/models.py:35
+msgid "Файл с процентами, формат .json"
+msgstr ""
+
+#: credit/models.py:39 credit/models.py:77
+msgid "Кредитный тариф"
+msgstr ""
+
+#: credit/models.py:59 credit/models.py:64 templates/index.html:187 
+#: templates/main.html:197
+msgid "Платеж"
+msgstr ""
+
+#: credit/models.py:61
+msgid "Пр. раз в месяц"
+msgstr ""
+
+#: credit/models.py:84
+msgid "Популярный кредитный тариф"
+msgstr ""
+
+#: credit/models.py:85
+msgid "Популярные кредитные тарифы, вверху на главной"
+msgstr ""
+
+#: department/models.py:10 templates/index.html:383 templates/main.html:393
+msgid "Город"
+msgstr ""
+
+#: department/models.py:13
+msgid "Адрес [ru]"
+msgstr ""
+
+#: department/models.py:15
+msgid "Адрес [ua]"
+msgstr ""
+
+#: department/models.py:20 templates/index.html:391 templates/main.html:401
+msgid "Режим работы"
+msgstr ""
+
+#: department/models.py:28
+msgid "Отделение"
+msgstr ""
+
+#: efin/settings.py:146
+msgid "Russian"
+msgstr ""
+
+#: efin/settings.py:147
+msgid "Ukrainian"
+msgstr ""
+
+#: templates/about.html:26 templates/contacts.html:27 
+#: templates/spoiler-page.html:15
+msgid "Больше информации"
+msgstr ""
+
+#: templates/about.html:42 templates/blog-item.html:19 templates/blog.html:22 
+#: templates/contacts.html:42 templates/default.html:29 templates/faq.html:26 
+#: templates/job.html:16 templates/spoiler-page.html:29
+msgid "Главная"
+msgstr ""
+
+#: templates/about.html:43 templates/contacts.html:43 templates/default.html:30
+msgid "О Нас"
+msgstr ""
+
+#: templates/about.html:68 templates/blog-item.html:40 
+#: templates/contacts.html:115 templates/default.html:45 templates/faq.html:37 
+#: templates/main.html:108
+msgid "Оформить кредит"
+msgstr ""
+
+#: templates/ajax_generate/chat_generate.html:6 
+#: templates/private-profile.html:324 templates/private-profile.html:361
+msgid "Написать в поддержку"
+msgstr ""
+
+#: templates/ajax_generate/chat_generate.html:7 
+#: templates/private-profile.html:325 templates/private-profile.html:362
+msgid "Сообщения"
+msgstr ""
+
+#: templates/ajax_generate/chat_generate.html:23 
+#: templates/ajax_generate/quest_generate.html:5 
+#: templates/private-profile.html:334 templates/private-profile.html:378
+msgid "Служба поддержки"
+msgstr ""
+
+#: templates/base.html:62
+msgid "Меню"
+msgstr ""
+
+#: templates/base.html:72
+msgid "Телефон горячей линии"
+msgstr ""
+
+#: templates/base.html:94
+msgid "Рус"
+msgstr ""
+
+#: templates/base.html:95
+msgid "Укр"
+msgstr ""
+
+#: templates/base.html:98 templates/base.html:103
+msgid "Выйти с кабинета "
+msgstr ""
+
+#: templates/base.html:100
+msgid "Мой кабинет "
+msgstr ""
+
+#: templates/base.html:130 templates/private-profile.html:442
+msgid "Больше информации на полной версии сайта"
+msgstr ""
+
+#: templates/base.html:131 templates/private-profile.html:443
+msgid "Перейти"
+msgstr ""
+
+#: templates/base.html:140
+msgid "Бесплатные звонки по Украине"
+msgstr ""
+
+#: templates/base.html:181
+msgid "Заработай с партнеской программой \"Приведи друга\""
+msgstr ""
+
+#: templates/base.html:183
+msgid "Приводи друзей и получай "
+msgstr ""
+
+#: templates/base.html:184
+msgid "за каждого нового пользователя"
+msgstr ""
+
+#: templates/base.html:187
+msgid "Пригласить друга"
+msgstr ""
+
+#: templates/blog-item.html:20 templates/blog.html:23 templates/blog.html:29
+msgid "Блог"
+msgstr ""
+
+#: templates/blog-item.html:38 templates/contacts.html:113 
+#: templates/default.html:43 templates/faq.html:35
+msgid "Всего"
+msgstr ""
+
+#: templates/blog-item.html:38 templates/contacts.html:113 
+#: templates/default.html:43 templates/faq.html:35
+msgid "в пару кликов"
+msgstr ""
+
+#: templates/blog-item.html:50 templates/blog.html:41 
+#: templates/contacts.html:125 templates/default.html:55 
+#: templates/index.html:427 templates/main.html:443
+msgid "Подробнее"
+msgstr ""
+
+#: templates/contacts.html:62
+msgid "Наш адрес"
+msgstr ""
+
+#: templates/contacts.html:74
+msgid "Наша электронная почта: "
+msgstr ""
+
+#: templates/contacts.html:78
+msgid "Наши телефоны: "
+msgstr ""
+
+#: templates/contacts.html:80
+msgid "(бесплатный многоканальный телефон)"
+msgstr ""
+
+#: templates/contacts.html:94
+msgid "Напишите нам"
+msgstr ""
+
+#: templates/contacts.html:105 templates/private-profile.html:297
+msgid "Отправить"
+msgstr ""
+
+#: templates/email/changed.html:11 templates/email/changed.html:15
+msgid "Почта успешно изменена"
+msgstr ""
+
+#: templates/email/changed.html:19 templates/email/link_invalid.html:19 
+#: templates/email/sended.html:19 templates/form-success.html:22
+msgid "Переход"
+msgstr ""
+
+#: templates/email/link_invalid.html:11
+msgid "Ошибка"
+msgstr ""
+
+#: templates/email/link_invalid.html:15
+msgid "Неправильная или не действительная ссылка"
+msgstr ""
+
+#: templates/email/sended.html:11
+msgid "Сообщение на почту отправлено"
+msgstr ""
+
+#: templates/email/sended.html:15
+msgid ""
+"Для завершения изменения почты перейдите по ссылке, отправленной на "
+"указанную Вами почту"
+msgstr ""
+
+#: templates/enter-sms.html:13
+msgid "Вход в личный кабинет"
+msgstr ""
+
+#: templates/enter-sms.html:16
+msgid "Введите код из SMS"
+msgstr ""
+
+#: templates/enter-sms.html:23
+msgid "Ввойти в личный кабинет"
+msgstr ""
+
+#: templates/faq.html:27
+msgid "Справка"
+msgstr ""
+
+#: templates/faq.html:29
+msgid "Вопросы и ответы"
+msgstr ""
+
+#: templates/faq.html:45
+msgid "Чем мы можем Вам помочь"
+msgstr ""
+
+#: templates/faq.html:46
+msgid ""
+"Выберите категорию из списка ниже, что бы мы помогли найти то, что Вы ищете"
+msgstr ""
+
+#: templates/faq.html:115
+msgid "Больше информации в категориях"
+msgstr ""
+
+#: templates/form-callback.html:11
+msgid "Обратная связь"
+msgstr ""
+
+#: templates/form-callback.html:19
+msgid "Заказать звонок менеджера"
+msgstr ""
+
+#: templates/form-callback.html:20 templates/form-callback.html:47
+msgid ""
+"Заказать звонок менеджера бесплатно без регистрации и смс и тому подобный "
+"сопроводительный текст для пользователей до 20:00, после чего форма будет не "
+"доступна"
+msgstr ""
+"После заполнения формы и отправления заявки, в течении 30 минут с Вами "
+"свяжется наш менеджер."
+
+#: templates/form-callback.html:24
+msgid "Введите свое имя"
+msgstr ""
+
+#: templates/form-callback.html:34
+msgid "Заказать звонок"
+msgstr ""
+
+#: templates/form-callback.html:38
+msgid "Сегодня одобрено"
+msgstr ""
+
+#: templates/form-callback.html:42 templates/index.html:65
+msgid "Заявок"
+msgstr ""
+
+#: templates/form-callback.html:46 templates/index.html:106
+msgid "Получить решение онлайн"
+msgstr ""
+
+#: templates/form-callback.html:57 templates/index.html:114
+msgid "Получить решение"
+msgstr ""
+
+#: templates/form-callback.html:59
+msgid "Уже есть аккаунт Экспресс финанс?"
+msgstr ""
+
+#: templates/form-callback.html:59
+msgid "Войти"
+msgstr ""
+
+#: templates/form-resume.html:14
+msgid "Отправьте нам Ваше резюме"
+msgstr ""
+
+#: templates/form-resume.html:28
+msgid "Желаемая должность"
+msgstr ""
+
+#: templates/form-resume.html:42
+msgid "Прикрепить резюме"
+msgstr ""
+
+#: templates/form-resume.html:45 templates/job.html:65
+msgid "Отправить резюме"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Экспресс-финанс"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Мгновенные кредиты онлайн"
+msgstr ""
+
+#: templates/index.html:22
+msgid "Выберите суму и срок необходимого Вам кредита в форме ниже"
+msgstr ""
+
+#: templates/index.html:25 templates/main.html:60 
+#: templates/private-profile.html:455
+msgid "Сумма кредита"
+msgstr ""
+
+#: templates/index.html:43 templates/index.html:220 templates/main.html:79 
+#: templates/main.html:230 templates/private-profile.html:474
+msgid "Срок займа"
+msgstr ""
+
+#: templates/index.html:50 templates/index.html:57 templates/index.html:75 
+#: templates/index.html:222 templates/main.html:232 
+#: templates/private-profile.html:477 templates/private-profile.html:483
+msgid "дней"
+msgstr ""
+
+#: templates/index.html:69
+msgid "Более"
+msgstr ""
+
+#: templates/index.html:69
+msgid "заявок"
+msgstr ""
+
+#: templates/index.html:70
+msgid "были"
+msgstr ""
+
+#: templates/index.html:70
+msgid "одобрены сегодня"
+msgstr ""
+
+#: templates/index.html:74 templates/main.html:98
+msgid "Вы берете"
+msgstr ""
+
+#: templates/index.html:75 templates/main.html:99
+msgid "На срок"
+msgstr ""
+
+#: templates/index.html:76 templates/main.html:100
+msgid "Платеж по кредиту"
+msgstr ""
+
+#: templates/index.html:76
+msgid "грн/нед"
+msgstr ""
+
+#: templates/index.html:86 templates/index.html:107
+msgid ""
+"Небольшой текст о том, куда и зачем отправляются эти данные пользователем "
+"сервиса, а так же небольшая инструкция по алгоритму дальнейших действий"
+msgstr ""
+
+#: templates/index.html:89
+msgid "Укажите Ваши"
+msgstr ""
+
+#: templates/index.html:89
+msgid "личные данные"
+msgstr ""
+
+#: templates/index.html:92
+msgid "Ввведите свое имя"
+msgstr ""
+
+#: templates/index.html:101
+msgid "Отправить данные"
+msgstr ""
+
+#: templates/index.html:151 templates/main.html:160
+msgid "Как стать участником программы"
+msgstr "Оформить кредит"
+
+#: templates/index.html:171 templates/main.html:45 templates/main.html:181
+msgid "кредитный тариф"
+msgstr ""
+
+#: templates/index.html:175 templates/main.html:185
+msgid "Размер кредита"
+msgstr ""
+
+#: templates/index.html:176 templates/index.html:180 templates/index.html:184 
+#: templates/main.html:186 templates/main.html:190
+msgid "от"
+msgstr ""
+
+#: templates/index.html:176 templates/index.html:180 templates/index.html:184 
+#: templates/main.html:186 templates/main.html:190
+msgid "до"
+msgstr ""
+
+#: templates/index.html:179 templates/main.html:189
+msgid "Параметр кредита"
+msgstr ""
+
+#: templates/index.html:180 templates/main.html:82 templates/main.html:88 
+#: templates/main.html:99 templates/main.html:105 templates/main.html:190
+msgid "месяцев"
+msgstr ""
+
+#: templates/index.html:180 templates/main.html:82 templates/main.html:88 
+#: templates/main.html:99 templates/main.html:105 templates/main.html:190
+msgid "недель"
+msgstr ""
+
+#: templates/index.html:183 templates/main.html:193
+msgid "ставка"
+msgstr ""
+
+#: templates/index.html:192 templates/main.html:202
+msgid "Подать заявку"
+msgstr ""
+
+#: templates/index.html:204
+msgid "Как получить кредит?"
+msgstr ""
+
+#: templates/index.html:210 templates/main.html:220
+msgid "Выберите сумму займа и срок"
+msgstr ""
+
+#: templates/index.html:214 templates/main.html:224
+msgid "Сумма кредите"
+msgstr ""
+
+#: templates/index.html:229 templates/main.html:239
+msgid "Заполните заявку"
+msgstr ""
+
+#: templates/index.html:234 templates/main.html:244
+msgid "Дата рождения"
+msgstr ""
+
+#: templates/index.html:235 templates/main.html:245
+msgid "Идентификационный код"
+msgstr ""
+
+#: templates/index.html:241 templates/main.html:251
+msgid "Привяжите карту"
+msgstr ""
+
+#: templates/index.html:254 templates/main.html:264
+msgid "Получите деньги на карту"
+msgstr ""
+
+#: templates/index.html:258 templates/main.html:268
+msgid "Пополнение карты"
+msgstr ""
+
+#: templates/index.html:259 templates/main.html:269
+msgid "Отправитель: Экспресс Финанс"
+msgstr ""
+
+#: templates/index.html:311 templates/main.html:321
+msgid "Нам доверяют сотни людей"
+msgstr ""
+
+#: templates/index.html:371 templates/main.html:381
+msgid "Показать все города"
+msgstr ""
+
+#: templates/index.html:379
+msgid "Адресс не найден"
+msgstr ""
+
+#: templates/index.html:381 templates/main.html:391
+msgid "Информация"
+msgstr ""
+
+#: templates/index.html:384 templates/main.html:394
+msgid "Город не найден"
+msgstr ""
+
+#: templates/index.html:388 templates/main.html:389 templates/main.html:398
+msgid "Адрес не найден"
+msgstr ""
+
+#: templates/index.html:392 templates/main.html:402
+msgid "Режим работы не найден"
+msgstr ""
+
+#: templates/index.html:402 templates/main.html:412
+msgid "Телефон не найден"
+msgstr ""
+
+#: templates/job.html:17 templates/job.html:20 vacancy/models.py:13 
+#: vacancy/models.py:31
+msgid "Вакансии"
+msgstr ""
+
+#: templates/job.html:27
+msgid "Напишите нам на почту"
+msgstr ""
+
+#: templates/job.html:32
+msgid "Свяжитесь с нами по телефону"
+msgstr ""
+
+#: templates/job.html:41
+msgid "Выберите категорию"
+msgstr ""
+
+#: templates/job.html:54
+msgid "Требования к кандидату"
+msgstr ""
+
+#: templates/job.html:59 vacancy/models.py:27
+msgid "Условия"
+msgstr ""
+
+#: templates/main.html:45
+msgid "Выберите Ваш"
+msgstr ""
+
+#: templates/main.html:100
+msgid "грн/месяц."
+msgstr ""
+
+#: templates/main.html:100
+msgid "грн/неделя."
+msgstr ""
+
+#: templates/main.html:214
+msgid "Как получить кредит"
+msgstr ""
+
+#: templates/private-profile.html:290 templates/private-profile.html:313
+msgid "Поддержка"
+msgstr ""
+
+#: templates/private-profile.html:291
+msgid "Опишите вашу проблему и мы постараемся вам помочь"
+msgstr ""
+
+#: templates/private-profile.html:304
+msgid "Добавить документ"
+msgstr ""
+
+#: templates/private-profile.html:316
+msgid "Сообщение отправлено"
+msgstr ""
+
+#: templates/private-profile.html:317
+msgid "Ответ будет отправлен на Вашу почту в течении 3 рабочих дней"
+msgstr ""
+
+#: templates/private-profile.html:320
+msgid "Спасибо, что выбрали"
+msgstr ""
+
+#: templates/private-profile.html:320
+msgid "\"Экспресс Финанс\""
+msgstr ""
+
+#: templates/private-profile.html:328
+msgid "Тема"
+msgstr ""
+
+#: templates/spoiler-page.html:47
+msgid "Просмотреть"
+msgstr ""
+
+#: templates/spoiler-page.html:57
+msgid "Скачать"
+msgstr ""
+
+#: users/forms.py:21
+msgid "Введенные пароли не совпадают"
+msgstr ""
+
+#: users/forms.py:30 users/forms.py:54
+msgid "+38 (0__) ___ __ __"
+msgstr ""
+
+#: users/forms.py:45
+msgid "Неправильный телефон"
+msgstr ""
+
+#: users/forms.py:57
+msgid "Введите пароль"
+msgstr ""
+
+#: users/models.py:12
+msgid ""
+"Номер может быть введён в одном из форматов: +380111111111, 380111111111, "
+"80111111111, 0111111111"
+msgstr ""
+
+#: users/models.py:19
+msgid "Двухфакторная аутентификация"
+msgstr ""
+
+#: users/models.py:21
+msgid "Код подтверждения"
+msgstr ""
+
+#: users/models.py:27 users/models.py:28
+msgid "Дополнительная информация"
+msgstr ""
+
+#: users/views.py:44 users/views.py:93
+msgid "Неправильный номер"
+msgstr ""
+
+#: users/views.py:85 users/views.py:89
+msgid "Неправильный номер или пароль"
+msgstr ""
+
+#: users/views.py:150
+msgid "Неправильный номер телефона"
+msgstr ""
+
+#: users/views.py:167
+msgid "Неправильный электронный адрес"
+msgstr ""
+
+#: vacancy/models.py:17
+msgid "Категории вакансий"
+msgstr ""
+
+#: vacancy/models.py:24
+msgid "Название вакансии"
+msgstr ""
+
+#: vacancy/models.py:26
+msgid "Требования"
+msgstr ""

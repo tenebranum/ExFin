@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% load custom_filters %}
+
+{% block title %}Category{% endblock %}
+
+{% block content %}
+	<section class="s-head">
+		<div class="wrapper">
+			<nav class="s-head__nav s-head__nav--mobile">
+				<div class="s-head__nav-more">{% trans "Больше информации" %}</div>
+				{% for obj in menu_about %}
+					<a href="{{ obj.link }}">{{ obj.name }}</a>
+				{% endfor %}
+
+				<button class="s-head__more-btn">
+					<span class="icon icon--arrow"></span>
+				</button>
+			</nav>
+		</div>
+	</section>
+	<section class="s-spoiler">
+		<div class="wrapper">
+			<div class="b-top-nav">
+				<a href="{% url 'main' %}" class="b-top-nav__item active">{% trans "Главная" %}</a>
+				<a href="{% url 'about' %}" class="b-top-nav__item">{% trans "Категория" %}</a>
+			</div>
+
+			<h2 class="b-top-title">{{ page.title }}</h2>
+
+			<div class="b-spoiler-container">
+			{% for obj in page.spoilers.get_queryset %}
+				<div class="b-spoiler">
+					<h4 class="b-spoiler-title">{{ obj.topic }}</h4>
+					<div class="b-spoiler-content b-spoiler-content--flex">
+						<div class="b-spoiler__column">
+							<p class="b-spoiler-text">
+							{% if obj.content_left|check_none %}
+								{{ obj.content_left|safe }}
+							{% endif %}
+							</p>
+							{% if obj.file %}
+								<a href="#" onclick="window.open('/open_pdf/{{ obj.id }}')" class="b-spoiler__link b-btn-linked">{% trans "Просмотреть" %}</a>
+							{% endif %}
+						</div>
+						<div class="b-spoiler__column">
+							<p class="b-spoiler-text">
+							{% if obj.content_right|check_none %}
+								{{ obj.content_right|safe }}
+							{% endif %}
+							</p>
+							{% if obj.file %}
+								<a href="#" onclick="window.open('/download_pdf/{{ obj.id }}')" class="b-spoiler__link b-btn-linked b-btn-linked--secondary" >{% trans "Скачать" %}</a>
+							{% endif %}
+						</div>		
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

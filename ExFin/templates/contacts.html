@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% load i18n %}
+
+{% load solo_tags %}
+
+{% block title %}{{ contact.title }}{% endblock %}
+
+{% block meta_title %}{{ contact.meta_title }}{% endblock %}
+
+{% block description %}
+{{ contact.meta_description|safe }}
+{% for obj in phones %}
+	{{ obj.number }}
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+
+	<section class="s-head">
+		<div class="wrapper">
+			<nav class="s-head__nav s-head__nav--mobile">
+				<div class="s-head__nav-more">{% trans "Больше информации" %}</div>
+				{% for obj in menu_about %}
+					<a href="{{ obj.link }}">{{ obj.name }}</a>
+				{% endfor %}
+				<button class="s-head__more-btn">
+					<span class="icon icon--arrow"></span>
+				</button>
+			</nav>
+		</div>
+	</section>
+
+	<section class="s-contacts">
+		<div class="wrapper">
+			<main class="b-main-container">
+				<div class="b-top-nav">
+					<a class="b-top-nav__item active" href="{% url 'main' %}" >{% trans "Главная" %}</a>
+					<a href="{% url 'about' %}" class="b-top-nav__item active">{% trans "О Нас" %}</a>
+					<a href="{% url 'contacts' %}" class="b-top-nav__item">{% trans "Контакты" %}</a>
+				</div>
+				<h2 class="b-top-title">{% trans "Контакты" %}</h2>
+				<div class="b-contact-wrap">
+					<div class="b-contact">
+						<img src="{% static 'dist/img/svgstore/icons/phone1.svg' %}" alt="phone">
+						<h4 class="b-contact__title">{% trans "Телефон" %}</h4>
+						<a class="b-contact__link" href="tel:{{ hot_line_phone.number|cut:' ' }}">{{ hot_line_phone.number }}</a>
+					</div>
+
+					<div class="b-contact">
+						<img src="{% static 'dist/img/svgstore/icons/mail.svg' %}" alt="mail">
+						<h4 class="b-contact__title">{% trans "Электронная почта" %}</h4>
+						<a class="b-contact__link" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+					</div>
+
+					<div class="b-contact">
+						<img src="{% static 'dist/img/svgstore/icons/geo.svg' %}" alt="geo">
+						<h4 class="b-contact__title">{% trans "Наш адрес" %}</h4>
+						<a href="tel:{{ contact.main_phone|cut:' ' }}">
+							{{ contact.address|safe }}
+						</a>
+					</div>
+				</div>
+				<div class="b-contact-wrap">	
+					<div class="b-contact-info">
+						<p class="b-contact-info__item b-contact-info__item--bg">
+							{{ contact.title_text|safe }}
+						</p>
+						<p class="b-contact-info__item">
+							{% trans "Наша электронная почта: " %}<br>
+							<a class="b-contact__link b-contact__link--iconed" href="mailto:{{ contact.email }}"><span class="icon icon--envelope"></span>{{ contact.email }}</a>
+						</p>
+						<p class="b-contact-info__item">
+							{% trans "Наши телефоны: " %}<br>
+						{% if hot_line_phone|is_phone_active %}
+							<a class="b-contact__link b-contact__link--bg b-contact__link--iconed" href="tel:{{ hot_line_phone.number|cut:' ' }}"><span class="icon icon--phone-call"></span>{{ hot_line_phone.number }}</a> {% trans "(бесплатный многоканальный телефон)" %}" <br>
+						{% endif %}
+						{% for phone in contact.phones.get_queryset %}
+							{#<a class="b-contact__link b-contact__link--bg b-contact__link--iconed" href="tel:{{ phone.number|cut:' ' }}">{{ phone.number }}</a>#}
+						{% endfor %}
+						</p>
+						<p class="b-contact-info__item">
+							{{ contact.schedule|safe }} <a class="b-contact__link" href="mailto:{{ contact.to_email }}">{{ contact.to_email }}</a>
+						</p>
+						<p class="b-contact-info__item">
+							{{ contact.footer_text|safe }}
+						</p>
+					</div>
+					<form action="{% url 'contacts' %}" method="post" class="f-contact">
+						<h3 class="f-contact__title">{% trans "Напишите нам" %}</h3>
+						{% if status_message %}
+							<h2 class="f-contact__title">{{ status_message }}</h2>
+						{% endif %}
+						{% csrf_token %}
+						{{ form.name }}
+                        <span class='help-block'>{{ form.errors.name }}</span>
+                        {{ form.email }}
+                        <span class='help-block'>{{ form.errors.email }}</span>
+                        {{ form.message }}
+                        <span class='help-block'>{{ form.errors.message }}</span>
+						<button type="submit" class="b-btn-primary b-btn-primary--main">{% trans "Отправить" %}</button>
+					</form>
+				</div>
+			</main>
+
+			<aside class="b-sidebar">
+				<div class="b-sidebar-banner">
+					<h3 class="b-sidebar-banner__title">
+						<span>{% trans "Всего" %}</span>{% trans "в пару кликов" %}!
+					</h3>
+					<a href="{% url 'callback' %}" class="b-btn-primary b-btn-primary--main b-btn-primary--bordered">{% trans "Оформить кредит" %}</a>
+					<img class="b-sidebar-banner__img b-sidebar-banner__img--left" src="{% static 'dist/img/car.png' %}" alt="car">
+					<img class="b-sidebar-banner__img b-sidebar-banner__img--right" src="{% static 'dist/img/grn.png' %}" alt="money">
+				</div>
+			{% get_solo 'communication.LastArticles' as last_articles %}
+			{% for obj in last_articles.articles.get_queryset %}
+				<article class="b-blog-item">
+					<img src="{{ obj.image.url }}" alt="money" class="b-blog-item__img">
+					<h3 class="b-blog-item__title">{{ obj.title }}</h3>
+					<p class="b-blog-item__text">{{ obj.text|safe|get_few_words:'30'|safe }}</p>
+					<a class="b-blog-item__link" href="{% url 'blog_item' obj.id %}">{% trans "Подробнее" %}</a>
+					<time class="b-blog-item__date" >{{ obj.date }}</time>
+				</article>
+			{% endfor %}
+			</aside>
+		</div>
+	</section>
+{% endblock %}

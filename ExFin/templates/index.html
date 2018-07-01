@@ -1,0 +1,428 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% load solo_tags %}
+
+{% load i18n %}
+
+{% load custom_filters %}
+
+{% block title %}Express Finance{% endblock %}
+
+{% block content %}
+	
+	<section class="s-credits">
+		<div class="wrapper">
+			<form action="{% url 'save_credit_request' %}" data-id="{{ index.credit_rate.id }}" id="credit_form" class="b-main-form">
+				<fieldset class="b-main-form__content">
+					<h3 class="b-main-form__content-title"><span>"{% trans 'Экспресс-финанс' %}"</span>{% trans 'Мгновенные кредиты онлайн' %}</h3>
+					<p class="b-main-form__content-message">{% trans "Выберите суму и срок необходимого Вам кредита в форме ниже" %}</p>
+
+					<div class="b-form-item">
+						<label class="b-form-item__label" for="credit-value-1">{% trans "Сумма кредита" %}:</label>
+
+						<div data-id="{{ index.credit_rate.id }}" class="b-form-item__slider" id="credit-slider-{{ index.credit_rate.id }}">
+							<div class="ui-slider-helper">
+								<a class='ui-slider-handle'>
+									<span class="icon icon--arrow icon--left"></span>
+									<span class="ui-slider-val">{{ index.credit_rate.get_sum_min }} грн</span>
+									<span class="icon icon--arrow icon--right"></span>
+								</a>
+							</div>
+						</div>
+
+						<input class="b-form-item__input b-form-item__input--first" value="750" type="tel" id="credit-value-{{ index.credit_rate.id }}">
+						<span>грн</span>
+
+					</div>
+
+					<div class="b-form-item">
+						<label class="b-form-item__label" for="termin-value-1">{% trans "Срок займа" %}:
+						</label>
+						
+						<div data-id="{{ index.credit_rate.id }}" class="b-form-item__slider" id="termin-slider-{{ index.credit_rate.id }}">
+							<div class="ui-slider-helper ui-slider-helper--sm">
+								<a class='ui-slider-handle ui-slider-handle--sm'>
+									<span class="icon icon--arrow icon--left"></span>
+									<span class="ui-slider-val">{{ index.credit_rate.term_min }} {% if index.credit_rate.term_type %}{% trans "месяцев" %}{% else %}{% trans "недель" %}{% endif %}</span>
+									<span class="icon icon--arrow icon--right"></span>
+								</a>
+							</div>
+						</div>
+
+						<input class="b-form-item__input b-form-item__input--second" value="56" type="tel" id="termin-value-{{ index.credit_rate.id }}">
+						<span>{% if index.credit_rate.term_type %}{% trans "месяцев" %}{% else %}{% trans "недель" %}{% endif %}</span>	
+					</div>
+				</fieldset>
+
+				<fieldset class="b-main-form__total">
+					<div class="b-total-number">
+						<span class="b-total-number__bg">3495</span>
+						<span class="b-total-number__count">3495</span>
+						<span class="b-total-number__caption">{% trans "Заявок" %}</span>
+					</div>
+
+					<div class="b-main-form__total-info">
+						<p class="b-main-form__info-item">{% trans "Более" %} <span>3495 {% trans "заявок" %}</span></p>
+						<p class="b-main-form__info-item">{% trans "были" %} <span>{% trans "одобрены сегодня" %}!</span></p>
+					</div>
+
+					<div class="b-main-form__total-content">
+						<p><span>{% trans "Вы берете" %}:</span><span id="credit-total-{{ index.credit_rate.id }}">{{ index.credit_rate.get_sum_min }} грн</span></p>
+						<p><span>{% trans "На срок" %}:</span> <span id="termin-total-{{ index.credit_rate.id }}">{{ index.credit_rate.term_min }} {% if index.credit_rate.term_type %}{% trans "месяцев" %}{% else %}{% trans "недель" %}{% endif %}</span></p>
+						<p class="b-main-form__total-cost"><span>{% trans "Платеж по кредиту" %}:</span> </span> <span class="pay_spam" data-id="{{ index.credit_rate.id }}" id="pay_spam{{ index.credit_rate.id }}" >550 {% if index.credit_rate.term_type %}{% trans "грн/месяц." %}{% else %}{% trans "грн/неделя." %}{% endif %}</span></p>
+					</div>
+					<input type="hidden" id="term_type" value="{{ index.credit_rate.term_type }}" name="term_type">
+					<input type="hidden" id="city_id" value="{% if user_city %}{{ user_city }}{% else %}{{ city }}{% endif %}" name="city">
+					<button class="b-btn-main" name="submit" type="submit"><span class="icon icon--check-mark"></span></button>
+				</fieldset>
+			</form>
+
+			<div class="b-form-group" id="personal_alert">
+
+				<div class="b-personal">
+					<p class="b-personal__alert">{% trans "Небольшой текст о том, куда и зачем отправляются эти данные пользователем сервиса, а так же небольшая инструкция по алгоритму дальнейших действий" %}.</p>
+
+					<form action="{% url 'request_callback' %}" method="post" class="b-personal-form">
+						<h4 class="b-personal-form__title">{% trans "Укажите Ваши" %} <br>{% trans "личные данные" %}</h4>
+						{% csrf_token %}
+						<div class="b-input">
+							<input type="text" name="client_name" placeholder="{% trans 'Ввведите свое имя' %}">
+							<span class="icon icon--avatar"></span>
+						</div>
+
+						<div class="b-input">
+							<input type="tel" name="contact_phone" placeholder="+38 (0__) ___ __ __">
+							<span class="icon icon--phone-call"></span>
+						</div>
+
+						<input type="hidden" value="{{ request.session.bid_id }}" id="bid_id" name="bid_id">
+						<input type="hidden" value="{% if user_city %}{{ user_city }}{% else %}{{ city }}{% endif %}" name="city">
+						<button class="b-btn-primary" type="submit">{% trans 'Отправить данные' %}</button>
+					</form>
+				</div>
+
+				<div class="b-callback">
+					<h4 class="b-callback__title">{% trans "Получить решение онлайн" %}</h4>
+					<p class="b-callback__info">{% trans "Небольшой текст о том, куда и зачем отправляются эти данные пользователем сервиса, а так же небольшая инструкция по алгоритму дальнейших действий" %}.</p>
+					<form action="{% url 'register' %}" method="post" class="b-callback-form">
+						<div class="b-input b-input--secondary">
+							{{ form.phone }}
+							<span class="icon icon--phone-call"></span>
+						</div>
+						{% csrf_token %}
+						<button class="b-btn-primary b-btn-primary--dark">{% trans "Получить решение" %}</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		<section class="s-advanteges" id="advantages" style="background-image: url({{ index.discount.image.url }});" >
+		<div class="s-advanteges-header">
+			<h2 class="b-section-title">{{ index.advantage.title }}</h2>
+			<p class="b-section-subtitle">{{ index.advantage.text }}</p>
+		</div>
+		
+		<div class="wrapper wrapper--flex">
+			<div class="s-advanteges-content">
+			{% for obj in index.advantage.advantages.get_queryset %}
+				<div class="s-advanteges-content__item">
+					<img src="{{ obj.image.url }}">
+					<p class="s-advanteges-content__item-caption">
+						{{ obj.text|safe }}
+					</p>
+				</div>
+			{% endfor %}
+			</div>
+
+			<div class="s-advanteges-message">
+				<div class="s-advanteges-message__image-box">
+					<img class="s-advanteges-message__svg-1" src="{{ main.discount.icon.url }}">
+					<img class="s-advanteges-message__svg-2" src="{{ main.discount.icon.url }}">
+					<img class="s-advanteges-message__svg-3" src="{{ main.discount.icon.url }}">
+				</div>
+
+				<div class="s-advanteges-message__content">
+					<h4 class="s-advanteges-message__content-title">
+						{{ index.discount.title|safe }}
+					</h4>
+					<p class="s-advanteges-message__content-main">{{ index.discount.text|safe }}</p>
+					<a href="{{ index.discount.link }}" class="b-btn-stretch">{% trans "Как стать участником программы" %}?</a>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+	<section class="s-packages" id="credits">
+		<div class="wrapper">
+			<div class="b-section-header">
+				<h2 class="b-section-title">{{ index.credit_block.title }}</h2>
+				<h3 class="b-section-subtitle">{{ index.credit_block.text }}</h3>
+			</div>
+			<div class="s-packages-content">
+			{% for obj in index.credit_block.credit_rates.get_queryset %}
+				<div>
+					<div class="s-packages-content__item">
+						<div class="s-packages-content__item-img" style="background-image: url({{ obj.image.url }})"></div>
+						<div class="s-packages-content__item-wrap">
+							<h3 class="s-packages-content__item-subcaption">{% trans "кредитный тариф" %}</h3>
+							<h4 class="s-packages-content__item-caption">{{ obj.name }} 
+							</h4>
+							<p class="s-packages-content__item-info">
+								<span>{% trans "Размер кредита" %}:</span>
+								<b>{% trans "от" %} {{ obj.get_sum_min|intcomma }} {% trans "до" %} {{ obj.get_sum_max|intcomma }} грн</b>	
+							</p>
+							<p class="s-packages-content__item-info">
+								{% trans "Параметр кредита" %}:
+								<b>{% trans "от" %} {{ obj.term_min }} {% trans "до" %} {{ obj.term_max }} {% if obj.term_type %}{% trans "месяцев" %}{% trans "недель" %}{% endif %}</b>	
+							</p>
+							<p class="s-packages-content__item-info">
+								% {% trans "ставка" %}:
+								<b>{% trans "от" %} {{ obj.rate_min }} {% trans "до" %} {{ obj.rate_max }}%</b>
+							</p>
+							<p class="s-packages-content__item-info">
+								{% trans "Платеж" %}: 
+								{% for pl in obj.payment_terms.get_queryset %}
+									<b>{{ pl.term }}</b>
+								{% endfor %}
+							</p>
+							<a href="form-callback.html" class="b-btn-primary b-btn-primary--main">{% trans "Подать заявку" %}</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="s-howto">
+		<div class="wrapper">
+			<div class="b-section-header">
+				<h2 class="b-section-title">{% trans "Как получить кредит?" %}</h2>
+			</div>
+
+			<div class="b-step-wrapper">
+				<div class="b-step">
+					<div class="b-step-number">1</div>
+					<h4 class="b-step-title">{% trans "Выберите сумму займа и срок" %}</h4>
+					
+					<div class="b-step__content b-step__content--special">
+						<div class="b-step__content--special-item">
+							<span>{% trans "Сумма кредите" %}</span>
+							<span>10 000</span>
+							<span>грн</span>
+						</div>
+
+						<div class="b-step__content--special-item">
+							<span>{% trans "Срок займа" %}</span>
+							<span>10</span>
+							<span>{% trans "дней" %}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="b-step">
+					<div class="b-step-number">2</div>
+					<h4 class="b-step-title">{% trans "Заполните заявку" %}</h4>
+
+					<div class="b-step__content b-step__content--main">
+						<p class="b-step__content-data">{% trans "Имя" %}</p>
+						<p class="b-step__content-data">{% trans "Фамилия" %}</p>
+						<p class="b-step__content-data">{% trans "Дата рождения" %}</p>
+						<p class="b-step__content-data">{% trans "Идентификационный код" %}</p>
+					</div>
+				</div>
+
+				<div class="b-step">
+					<div class="b-step-number">3</div>
+					<h4 class="b-step-title">{% trans "Привяжите карту" %}</h4>
+					
+					<div class="b-step__content b-step__content--card">
+						<img class="b-step__content-img" src="{% static 'dist/img/card.png' %}" alt="card">
+						<span class="b-step__content-abs">
+							<p class="b-step__content-data">Date: <span>08/23</span></p>
+							<p class="b-step__content-data">CVV/CVC: <span>594</span></p>
+						</span>
+					</div>				
+				</div>
+
+				<div class="b-step">
+					<div class="b-step-number">4</div>
+					<h4 class="b-step-title">{% trans "Получите деньги на карту" %}</h4>
+
+					<div class="b-step__content b-step__content--secondary">
+						<span class="b-arrows"></span>
+						<p class="b-step__content-data">{% trans "Пополнение карты" %}</p>
+						<p class="b-step__content-data">{% trans "Отправитель: Экспресс Финанс" %}</p>
+						<p class="b-step__content-data">
+							<span class="b-step__content-total">10 000 <span>.00</span></span>
+							грн
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="b-section-message">
+			{% for obj in index.credit_take.get_queryset %}
+				<div class="b-section-message__item {% if forloop.first %}active{% endif %}">
+					<h3 class="b-section-message__item-title">
+						{{ obj.title }}
+					</h3>
+					<p class="b-section-message__item-content">
+						{{ obj.text }}
+					</p>
+				</div>
+			{% endfor %}
+			</div>
+
+			<div class="b-section-cards">
+				<div class="b-section-cards__logo-wrap">
+					<img class="b-section-cards__logo" src="{{ index.security.image1.url }}" alt="visa-card">
+					<img class="b-section-cards__logo master-card" src="{{ index.security.image2.url }}" alt="master-card">
+					<img class="b-section-cards__logo" src="{{ index.security.image3.url }}" alt="pci">
+					<img class="b-section-cards__logo" src="{{ index.security.image4.url }}" alt="comodo">
+					<img class="svg-bank" src="{{ index.security.image5.url }}" alt="credit-card">
+
+					<div class="b-section-cards__icons">
+					{% for obj in index.security.security_items.get_queryset %}
+						<span class="icon icon--{{ obj.icon_class }}">{{ obj.text|safe }}</span>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="s-review" id="review">
+		<div class="wrapper">
+			<div class="b-section-header b-section-header--secondary">
+				<h2 class="b-section-title">{% trans "Нам доверяют сотни людей" %}</h2>
+			</div>
+
+			<div class="b-review">
+
+				<div class="b-review__icon"></div>
+
+				<div class="b-review__info">
+				{% for obj in index.responses.get_queryset %}
+					<p id="review-{{ obj.id }}" {% if forloop.first %}class="active"{% endif %}>
+						{{ obj.text }}
+					</p>
+				{% endfor %}
+				</div>
+
+				<div class="b-review__person-wrapper">
+				{% for obj in index.responses.get_queryset %}
+					<div id="person-{{ obj.id }}" class="b-review__person {% if forloop.first %}active{% endif %}">
+
+						<div class="b-review__person-img">
+							<img src="{{ obj.image.url }}" alt="person-img">
+						</div>
+						
+						<div class="b-review__person-info">
+							<p><b>{{ obj.name }}</b></p>
+							<p>{{ obj.status }}</p>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="s-region" id="region">
+		<div class="wrapper">
+			<h2 class="b-section-title">
+			{% if '/ru/' in request.path %}
+				{{ index.departments_title_ru }}
+			{% elif '/ua/' in request.path %}
+				{{ index.departments_title_ua }}
+			{% endif %}
+			</h2>
+
+			<div class="b-region-list__wrapper">
+				<ul class="b-region-list">
+				{% for obj in departments %}
+				{% if not forloop.first %}
+					{% if column_list|is_new_column %}
+						</ul>
+						<ul class="b-region-list">
+					{% endif %}
+				{% endif %}
+					<li><span class="arrow"></span><button class="b-region-list__btn"  data-dep_id="{{ obj }}">{{ obj }}</button></li>
+				{% endfor %}
+				</ul>
+				<div class="popup">
+					
+					<div class="popup-cities">
+						<ul class="popup-list">	</ul>
+						<button class="b-btn-primary b-btn-primary--main btn-show">{% trans "Показать все города" %}</button>
+					</div>
+					
+					<div id="map" class="popup-map"></div>
+					
+					<div class="popup-info">
+						<h3 class="popup-info__adress">
+							<span class="icon icon--arrow"></span>
+							<span id="data-adress">{% trans "Адресс не найден" %}</span>
+						</h3>
+						<h4 class="popup-info__title">{% trans "Информация" %}</h4>
+						<div class="popup-info__item">
+							<span class="popup-info__item-title">{% trans "Город" %}:</span>
+							<span class="popup-info__item-main" id="data-city">{% trans "Город не найден" %}</span>
+						</div>
+						<div class="popup-info__item">
+							<span class="popup-info__item-title">{% trans "Адрес" %}:</span>
+							<span class="popup-info__item-main" id="data-localAdress">{% trans "Адрес не найден" %}</span>
+						</div>
+						<div class="popup-info__item">
+							<span class="popup-info__item-title">{% trans "Режим работы" %}:</span>
+							<span class="popup-info__item-main" id="data-schedule">{% trans "Режим работы не найден" %}</span>
+						</div>
+						<div class="popup-info__item">
+							<span class="popup-info__item-title">{% trans "Контакты" %}:</span>
+							<a class="popup-info__link popup-info__link--mail" href="mailto:rm.kyiv.kharkivskiy@expressfinance.com.ua">
+								<img src="{% static 'dist/img/svgstore/icons/mail.svg' %}">
+								<span id="data-mail">rm.kyiv.kharkivskiy@expressfinance.com.ua</span>
+							</a>
+							<a class="popup-info__link" href="tel:(044)-228-70-51">
+								<img src="{% static 'dist/img/svgstore/icons/phone1.svg' %}">
+								<span id="data-phone">{% trans "Телефон не найден" %}</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="s-media" id="payout" action="#!">
+		<div class="wrapper">
+			<h2 class="b-section-title">{{ index.credit_close.title }}</h2>
+			<div class="b-media">
+			{% for obj in index.credit_close.close_credits.get_queryset %}
+				<div class="b-media-item">
+					<div class="b-media-item__img">
+						<svg class="{{ obj.icon_class }}">
+							<use href="{% static 'sprite.svg' %}#{{ obj.icon_class }}"></use>
+						</svg>
+					</div>
+					
+					<h4 class="b-media-item__title">{{ obj.title }}</h4>
+					<p class="b-media-item__info">{{ obj.text }}</p>
+					<a href="{{ obj.link }}">
+						<button class="b-btn-primary b-btn-primary--main">{% trans "Подробнее" %}</button>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

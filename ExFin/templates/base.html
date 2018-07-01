@@ -1,0 +1,243 @@
+{% load static %}
+
+{% load solo_tags %}
+
+{% load i18n %}
+
+{% load custom_filters %}
+
+{% load translate_urls %}
+
+{% get_solo 'content.MainPageStatic' as main %}
+
+{% get_current_language as LC %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67448929-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-67448929-1');
+	</script>
+
+	<meta charset="UTF-8">
+	<title>
+	{% block title %}
+	{% if '/ru/' in request.path %}
+		{{ main.title_ru }}
+	{% elif '/ua/' in request.path %}
+		{{ main.title_ua }} 
+	{% endif %}
+	{% endblock %} | expressfinance.com.ua</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'dist/img/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'dist/css/styles.css' %}">
+	{% block extrastyles %}{% endblock %}
+	<meta name="title" content="
+	{% block meta_title %}
+	{% if '/ru/' in request.path %}
+		{{ main.meta_title_ru }}
+	{% elif '/ua/' in request.path %}
+		{{ main.meta_title_ua }}
+	{% endif %}
+	{% endblock %} | expressfinance.com.ua" />
+	<meta name="description" content="
+	{% block description %}
+	{% if '/ru/' in request.path %}
+		{{ main.meta_description_ru|safe }}
+	{% elif '/ua/' in request.path %}
+		{{ main.meta_description_ua|safe }}
+	{% endif %}
+	{% for obj in phones %}
+		{{ obj.number }}
+	{% endfor %}
+	{% endblock %}| expressfinance.com.ua (expressfinance.com.ua)" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+	<header class="s-header">
+		<div class="wrapper">
+			<button class="mobile-menu">
+				<div class="mobile-menu__sandwich">
+					<span class="mobile-menu__topper"></span>
+					<span class="mobile-menu__middle"></span>
+					<span class="mobile-menu__footer"></span>
+				</div>
+				<span>{% trans "Меню" %}</span>
+			</button>
+
+			<a href="{% url 'main' %}" class="b-logo">
+				<svg><use xlink:href="{% static 'sprite.svg' %}#svg-logo">
+				</svg>
+			</a>
+
+			<div class="s-header__phone">
+			{% if hot_line_phone|is_phone_active %}
+				<span>{% trans "Телефон горячей линии" %}</span>
+				<a href="tel:+{{ hot_line_phone.number|cut:' ' }}">{{ hot_line_phone.number }}</a>
+			{% endif %}
+			</div>
+			
+			<div class="mobile-icons">
+				<a href="#" class="mobile-link">
+					<i class="fas fa-phone"></i>
+				</a>
+
+				<a href="{% url 'profile' %}" class="mobile-link">
+					<i class="fas fa-sign-in-alt"></i>
+				</a>
+			</div>
+
+			<div class="b-nav">
+			{% get_solo 'content.MenuHeaderBlock' as menu_header %}
+				{% for obj in menu_header.items.get_queryset %}
+					<a href="{{ obj.link }}" class="b-nav__link">{{ obj.name }}</a>
+				{% endfor %}
+			</div>
+			<div class="s-header__lang">
+				<a href="{% translate_url ru %}" class="b-btn b-btn--lang">{% trans "Рус" %}</a>
+				<a href="{% translate_url ua %}" class="b-btn b-btn--lang">{% trans "Укр" %}</a>
+			</div>
+			{% if '/my/' in request.path %}
+				<a href="{% url 'logout' %}" class="b-btn-login">{% trans "Выйти с кабинета " %}<span class="icon icon--login"></span></a>
+			{% else %}
+				<a href="{% url 'profile' %}" class="b-btn-login">{% trans "Мой кабинет " %}<span class="icon icon--login"></span></a>
+			{% endif %}
+	<!--	{% if request.user.is_authenticated %}
+				<a href="{% url 'logout' %}" class="b-btn-login">{% trans "Выйти с кабинета " %}<span class="icon icon--login"></span></a>
+			{% else %} -->
+			<!--{% endif %}-->
+		</div>
+	</header>
+
+{% block content %}{% endblock %}
+
+{% block info %}
+<section class="s-info">
+		<div class="wrapper wrapper--flex">
+
+			<div class="b-info-wrapper">
+				{{ main.credit_information.text|safe }}
+			</div>
+			
+			{% for obj in main.credit_information.information_items.get_queryset %}
+			<div class="b-info b-info--inline">
+				<h4 class="b-info__title">{{ obj.title }}</h4>
+					{{ obj.text|safe }}	
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="s-more-information">
+		<div class="wrapper">
+			<p>{% trans "Больше информации на полной версии сайта" %}</p>
+			<a href="#" class="b-btn-primary b-btn-primary--main">{% trans "Перейти" %}</a>
+		</div>
+	</section>
+{% endblock %}
+{% block footer %}
+<footer class="s-footer">
+		<div class="wrapper wrapper--flex">
+			<div class="s-footer-contacts">
+			{% if hot_line_phone|is_phone_active %}
+				<a class="b-tel b-tel--primary" href="tel:{{ hot_line_phone.number|cut:' ' }}">{{ hot_line_phone.number }} <span>{% trans "Бесплатные звонки по Украине" %}</span></a>
+			{% endif %}
+			{% for obj in phones %}
+				{#<a class="b-tel b-tel--secondary" href="tel:{{ obj.number|cut:' ' }}"><span class="icon icon--{{ obj|get_icon_class_phone_number }}"></span>{{ obj.number }}</a>#}
+			{% endfor %}
+			</div>
+			<div class="s-footer__social">
+				{% for obj in main.social_nets.get_queryset %}
+					<a href="{{ obj.link }}"><span class="icon icon--{{ obj|get_icon_class_social_net }}"></span></a>	
+				{% endfor %}	
+			</div>
+
+			<div class="s-footer-about">
+				<nav class="s-footer-nav">
+				{% for obj in main.menu_footer.get_queryset %}
+					{% if forloop.first %}
+						<h4 class="s-footer-nav__title">{{ obj.name }}</h4>
+						{% for item in obj.items.get_queryset %}
+							<a href="{{ item.link }}" class="s-footer-nav__link">{{ item.name }}</a>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+				</nav>
+			</div>
+
+			<div class="s-footer-faq">
+
+			{% for obj in main.menu_footer.get_queryset %}
+				{% if not forloop.first %}
+				<nav class="s-footer-nav">
+					<h4 class="s-footer-nav__title">{{ obj.name }}</h4>
+					{% for item in obj.items.get_queryset %}
+						<a href="{{ item.link }}" class="s-footer-nav__link">{{ item.name }}</a>
+					{% endfor %}
+				</nav>
+				{% endif %}
+			{% endfor %}
+			</div>
+
+		<!--	<div class="s-footer-referal-wrap">
+				<div class="s-footer-referal">
+					<h4 class="s-footer-referal__title">{% trans 'Заработай с партнеской программой "Приведи друга"' %}</h4>
+					<p class="s-footer-referal__text">
+						{% trans "Приводи друзей и получай " %}<strong>до 200 грн</strong>
+						{% trans "за каждого нового пользователя" %}!
+					</p>
+
+					<button class="b-btn-primary b-btn-primary--main">{% trans "Пригласить друга" %}</button>
+				</div>
+			</div>-->
+			
+			<div class="s-footer-base">
+				<a href="#" class="b-logo">
+					<svg><use href="{% static 'sprite.svg' %}#svg-logo">
+					</svg>
+				</a>
+					{% get_current_language as LC %}
+					{% if '/ru/' in request.path %}
+						{{ main.copyright_ru|delete_p|safe }}
+					{% elif '/ua/' in request.path %}
+						{{ main.copyright_ua|delete_p|safe }} 
+					{% endif %}
+				<div class="s-footer-base__social mob-hidden">
+				{% for obj in main.social_nets.get_queryset %}
+					<a href="{{ obj.link }}"><span class="icon icon--{{ obj|get_icon_class_social_net }}"></span></a>	
+				{% endfor %}	
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div id="SITEHELP_CONTAINER_3211" class="SITEHELP_CONTAINER_3211"></div>
+{% endblock %}
+{% block extra %}{% endblock %}
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<script src="{% static 'dist/libs/slick.js' %}"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script src="{% static 'dist/libs/common.js' %}"></script>
+ 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGHOC0W3HeH12bCj22i3kGPUFvHMrpPYM&callback=initMap"></script>
+ 	<script type="text/javascript">
+	(function(){
+		var sitehelp_s = document.createElement('script');
+		sitehelp_s.type = 'text/javascript';
+		sitehelp_s.async = true;
+		sitehelp_s.src = top.location.protocol + '//c.sitehelp.im/code.cgi?c=3211' + (top.location.protocol=='http:' ? '' : '&ssl=1') + '&rnd=' + Math.random();
+		document.body.appendChild(sitehelp_s);
+	})();
+	</script>
+{% block extrascrypts %}{% endblock %}
+
+</body>
+</html>
